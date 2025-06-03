@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class CardProgram : MonoBehaviour,IDragHandler, IDropHandler
 {
-    SlotData _slotData;
+    public SlotData _slotData;
     string tagName = "Set";
     [SerializeField] Text _text;
     public int cost, hitPoint;
@@ -50,11 +50,23 @@ public class CardProgram : MonoBehaviour,IDragHandler, IDropHandler
             if (r.gameObject.tag.Contains(tagName))
             {
                 _slotData = r.gameObject.GetComponent<SlotData>();
-                _slotData.hp = hitPoint; _slotData.cost = cost;
-                transform.position = r.gameObject.transform.position;
+                if (_slotData.hp == 0 && _slotData.cost == 0)
+                {
+                    _slotData.hp = hitPoint; _slotData.cost = cost;
+                    transform.position = r.gameObject.transform.position;
+                }
+                else
+                {
+                    _slotData = null;
+                }
             }
             else
             {
+                if (_slotData != null)
+                {
+                    _slotData.hp = 0; _slotData.cost = 0;
+                    _slotData=null;
+                }
                 this.transform.position = setPosition;
             }
         }
