@@ -1,0 +1,62 @@
+using System.Collections;
+using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
+
+public class CardProgram : MonoBehaviour,IDragHandler, IDropHandler
+{
+    SlotData _slotData;
+    string tagName = "Set";
+    [SerializeField] Text _text;
+    public int cost, hitPoint;
+    int costLeast = 1, costHighest = 5;
+    int hitPointLeast = 10, hitPointHighest = 255;
+    string slotName;
+    Vector3 setPosition;
+    void Start()
+    {
+        setPosition = this.transform.position;
+        cost = SetCost();
+        hitPoint = SetHitPoint();
+        SetParameter(cost, hitPoint);
+    }
+    public int SetCost()
+    {
+        int cost = Random.Range(costLeast, costHighest + 1);
+        return cost;
+    }
+    public int SetHitPoint()
+    {
+        int HP = Random.Range(hitPointLeast, hitPointHighest + 1);
+        return HP;
+    }
+    public void SetParameter(int cost, int hitpoint)
+    {
+        _text.text = "ÉRÉXÉg:" + cost + "\n" +
+                     "HP:" + hitpoint;
+    }
+    public void OnDrag(PointerEventData eventData)
+    {
+        transform.position = eventData.position;
+    }
+    public void OnDrop(PointerEventData eventData)
+    {
+        var results = new List<RaycastResult>();
+        EventSystem.current.RaycastAll(eventData, results);
+        foreach (var r in results)
+        {
+            if (r.gameObject.tag.Contains(tagName))
+            {
+                _slotData = r.gameObject.GetComponent<SlotData>();
+                _slotData.hp = hitPoint; _slotData.cost = cost;
+                transform.position = r.gameObject.transform.position;
+            }
+            else
+            {
+                this.transform.position = setPosition;
+            }
+        }
+    }
+}

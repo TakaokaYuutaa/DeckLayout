@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DeckSeting : MonoBehaviour
 {
-    public List<bool> cardSeting = new List<bool>()
+    [SerializeField] Text _costText;
+    
+    private void Update()
     {
-        false,false,false,false
-    };
-    [SerializeField] GameObject[] _slot;
+        _costText.text = "ÉRÉXÉg:"+0;
+    }
 }
