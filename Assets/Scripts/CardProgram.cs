@@ -8,10 +8,9 @@ using UnityEngine.UI;
 public class CardProgram : MonoBehaviour,IDragHandler, IDropHandler
 {
     public SlotData _slotData;
-    string tagName = "Set";
     [SerializeField] Text _text;
     public int cost, hitPoint;
-    int costLeast = 1, costHighest = 5;
+    int costLeast = 1, costHighest = 7;
     int hitPointLeast = 10, hitPointHighest = 255;
     string slotName;
     Vector3 setPosition;
@@ -47,7 +46,7 @@ public class CardProgram : MonoBehaviour,IDragHandler, IDropHandler
         EventSystem.current.RaycastAll(eventData, results);
         foreach (var r in results)
         {
-            if (r.gameObject.tag.Contains(tagName))
+            if (r.gameObject.tag=="Set")
             {
                 _slotData = r.gameObject.GetComponent<SlotData>();
                 if (_slotData.hp == 0 && _slotData.cost == 0)

@@ -87,7 +87,6 @@ GameObject:
   - component: {fileID: 3171331861435867339}
   - component: {fileID: 3330037283793380152}
   - component: {fileID: 1719229308650394362}
-  - component: {fileID: 2196601599688561424}
   m_Layer: 5
   m_Name: CardBack
   m_TagString: Untagged
@@ -166,19 +165,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 131ed1f45b6aa7545b8fa0bc6189905a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2196601599688561424
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1923784144098434073}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1d59071856c9ca43a2787bf4a3a5359, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  _slotData: {fileID: 0}
   _text: {fileID: 8681447568747804349}
+  cost: 0
+  hitPoint: 0
 --- !u!1 &6871527564541456062
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,9 +5,6 @@ TagManager:
   serializedVersion: 2
   tags:
   - Set
-  - Set2
-  - Set3
-  - Set4
   layers:
   - Default
   - TransparentFX
@@ -15,7 +12,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - SelctUI
   - 
   - 
   - 
