@@ -9,6 +9,8 @@ public class CardProgram : MonoBehaviour,IDragHandler, IDropHandler
 {
     public SlotData _slotData;
     [SerializeField] Text _text;
+    [SerializeField] public GameObject _select;
+    [SerializeField] public GameObject _notSelect;
     public int cost, hitPoint;
     int costLeast = 1, costHighest = 7;
     int hitPointLeast = 10, hitPointHighest = 255;
@@ -38,7 +40,14 @@ public class CardProgram : MonoBehaviour,IDragHandler, IDropHandler
     }
     public void OnDrag(PointerEventData eventData)
     {
+        transform.parent = _select.transform;
         transform.position = eventData.position;
+        if (_slotData != null)
+        {
+            _slotData.hp = 0; _slotData.cost = 0;
+            _slotData.setCard = null;
+            _slotData = null;
+        }
     }
     public void OnDrop(PointerEventData eventData)
     {
@@ -46,28 +55,36 @@ public class CardProgram : MonoBehaviour,IDragHandler, IDropHandler
         EventSystem.current.RaycastAll(eventData, results);
         foreach (var r in results)
         {
-            if (r.gameObject.tag=="Set")
+            if (r.gameObject.tag == "Set")
             {
-                _slotData = r.gameObject.GetComponent<SlotData>();
-                if (_slotData.hp == 0 && _slotData.cost == 0)
+                if (r.gameObject.GetComponent<SlotData>().setCard == null)
                 {
-                    _slotData.hp = hitPoint; _slotData.cost = cost;
-                    transform.position = r.gameObject.transform.position;
+                    _slotData = r.gameObject.GetComponent<SlotData>();
+                    if (_slotData.hp == 0 && _slotData.cost == 0)
+                    {
+                        _slotData.setCard = this;
+                        _slotData.hp = hitPoint; _slotData.cost = cost;
+                        transform.position = r.gameObject.transform.position;
+                    }
+                    else
+                    {
+                        _slotData.hp = 0; _slotData.cost = 0;
+                        _slotData.setCard = null;
+                        _slotData = null;
+                        transform.position = setPosition;
+                    }
                 }
-                else
-                {
-                    _slotData = null;
-                }
+
             }
             else
             {
-                if (_slotData != null)
-                {
-                    _slotData.hp = 0; _slotData.cost = 0;
-                    _slotData=null;
-                }
-                this.transform.position = setPosition;
+                transform.position = setPosition;
             }
+        }
+        if (_slotData == null)
+        {
+            transform.position =setPosition;
+            transform.parent = _notSelect.transform;
         }
     }
 }
