@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,9 +11,11 @@ public class CardSeting : MonoBehaviour
     [SerializeField] Transform _content;
     [SerializeField] GameObject[] _cards;
     [SerializeField] Text _sortText;
+    [SerializeField] Text _orderText;
     List<Transform> _cardDate = new();
-    int sortPattern = 0;
+    int sortPattern = 1;
     int set_A_card = 10;
+    bool order = false;
     private void Start()
     {
         for (int i = 0; i < set_A_card; i++)
@@ -26,9 +29,13 @@ public class CardSeting : MonoBehaviour
         SortSeting();
 
     }
-    public void ClickThis()
+    public void SortPatternChange_ClickThis()
     {
         sortPattern++;
+        Sort();
+    }
+    void Sort()
+    {
         switch (sortPattern)
         {
             case 1:
@@ -49,7 +56,20 @@ public class CardSeting : MonoBehaviour
                 sortPattern = 0;
                 break;
         }
-
+    }
+    public void OrderCard_CrickThis()
+    {
+        Sort();
+        if (order)
+        {
+            order = false;
+            _orderText.text = "~‡";
+        }
+        else
+        {
+            order = true;
+            _orderText.text = "¸‡";
+        }
     }
     void SortSeting()
     {
@@ -61,34 +81,78 @@ public class CardSeting : MonoBehaviour
     }
     void NameSort()
     {
-        _cardDate.Sort((a, b) => string.Compare(a.name, b.name));
-        for (int i = 0; i < _cardDate.Count; i++)
+        if (order)
         {
-            _cardDate[i].SetSiblingIndex(i);
+            _cardDate.Sort((a, b) => string.Compare(b.name, a.name));
+            for (int i = 0; i < _cardDate.Count; i++)
+            {
+                _cardDate[i].SetSiblingIndex(i);
+            }
+        }
+        else
+        {
+            _cardDate.Sort((a, b) => string.Compare(a.name, b.name));
+            for (int i = 0; i < _cardDate.Count; i++)
+            {
+                _cardDate[i].SetSiblingIndex(i);
+            }
         }
     }
     void HPSort()
     {
-        _cardDate.Sort((a, b) => b.GetComponent<CardMovement>().hitPoint - a.GetComponent<CardMovement>().hitPoint);
-        for (int i = 0; i < _cardDate.Count; i++)
+        if (order)
         {
-            _cardDate[i].SetSiblingIndex(i);
+            _cardDate.Sort((a, b) => a.GetComponent<CardMovement>().hitPoint - b.GetComponent<CardMovement>().hitPoint);
+            for (int i = 0; i < _cardDate.Count; i++)
+            {
+                _cardDate[i].SetSiblingIndex(i);
+            }
+        }
+        else
+        {
+            _cardDate.Sort((a, b) => b.GetComponent<CardMovement>().hitPoint - a.GetComponent<CardMovement>().hitPoint);
+            for (int i = 0; i < _cardDate.Count; i++)
+            {
+                _cardDate[i].SetSiblingIndex(i);
+            }
         }
     }
     void CostSort()
     {
-        _cardDate.Sort((a, b) => b.GetComponent<CardMovement>().cost - a.GetComponent<CardMovement>().cost);
-        for (int i = 0; i < _cardDate.Count; i++)
+        if (order)
         {
-            _cardDate[i].SetSiblingIndex(i);
+            _cardDate.Sort((a, b) => a.GetComponent<CardMovement>().cost - b.GetComponent<CardMovement>().cost);
+            for (int i = 0; i < _cardDate.Count; i++)
+            {
+                _cardDate[i].SetSiblingIndex(i);
+            }
+        }
+        else
+        {
+            _cardDate.Sort((a, b) => b.GetComponent<CardMovement>().cost - a.GetComponent<CardMovement>().cost);
+            for (int i = 0; i < _cardDate.Count; i++)
+            {
+                _cardDate[i].SetSiblingIndex(i);
+            }
         }
     }
     void@NumberSort()
     {
-        _cardDate.Sort((a, b) => a.GetComponent<CardMovement>().cardNo - b.GetComponent<CardMovement>().cardNo);
-        for (int i = 0; i < _cardDate.Count; i++)
+        if (order)
         {
-            _cardDate[i].SetSiblingIndex(i);
+            _cardDate.Sort((a, b) => a.GetComponent<CardMovement>().cardNo - b.GetComponent<CardMovement>().cardNo);
+            for (int i = 0; i < _cardDate.Count; i++)
+            {
+                _cardDate[i].SetSiblingIndex(i);
+            }
         }
+        else
+        {
+            _cardDate.Sort((a, b) => b.GetComponent<CardMovement>().cardNo - a.GetComponent<CardMovement>().cardNo);
+            for (int i = 0; i < _cardDate.Count; i++)
+            {
+                _cardDate[i].SetSiblingIndex(i);
+            }
+        }       
     }
 }

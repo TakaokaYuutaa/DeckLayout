@@ -11,6 +11,8 @@ public class DeckSeting : MonoBehaviour
     [SerializeField] Text _costText;
     [SerializeField] Text _errorMessage;
     int cost;
+    //ErrorTextDisplay
+    int displayTime = 3, magnification = 1000;
     private void Update()
     {
         cost = CostCalculate();
@@ -47,7 +49,6 @@ public class DeckSeting : MonoBehaviour
     }
     async UniTask ErorrTextDisplay(CancellationToken cancel)
     {
-        int displayTime =3, magnification = 1000;
         _errorMessage.gameObject.SetActive(true);
         await UniTask.Delay(displayTime*magnification);
         _errorMessage.gameObject.SetActive(false);
