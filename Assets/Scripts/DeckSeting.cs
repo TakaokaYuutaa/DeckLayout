@@ -42,7 +42,7 @@ public class DeckSeting : MonoBehaviour
         else
         {
             var ct = this.GetCancellationTokenOnDestroy();
-            _ = ErorrTextDisplay(ct);
+            ErorrTextDisplay(ct).Forget();
         }
     }
     async UniTask ErorrTextDisplay(CancellationToken cancel)

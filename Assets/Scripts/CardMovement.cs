@@ -5,14 +5,14 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class CardProgram : MonoBehaviour,IDragHandler, IDropHandler
+public class CardMovement: MonoBehaviour,IDragHandler, IDropHandler
 {
     public SlotData _slotData;
     [SerializeField] Text _text;
     [SerializeField] public GameObject _select;
     [SerializeField] public GameObject _notSelect;
-    public int cost, hitPoint;
-    int costLeast = 1, costHighest = 7;
+    public int cost, hitPoint,cardNo;
+    int costLeast = 1, costHighest = 5;
     int hitPointLeast = 10, hitPointHighest = 255;
     string slotName;
     Vector3 setPosition;
