@@ -1,2 +1,8 @@
-使用素材:いらすとや　利用規約 https://www.irasutoya.com/p/terms.html
-　　　　　　　　　　　　　　　https://www.irasutoya.com/p/faq.html
+使用素材
+・いらすとや　https://www.irasutoya.com/
+・けいふぉんと　https://font.sumomo.ne.jp/font_1.html
+操作方法
+・アイテムの上でマウスの右クリックを長押しすると、アイテムを掴めます
+・アイテムは空きスロットに入れる事が出来ます(4個まで)
+・入れたアイテムの総コストが10未満の場合,決定を押すとコンソールに「Success」と表示されます(10以上の場合は「コストが高い」と表示されます)
+・ソートは「獲得順」「コスト順」「HP順」「名前順」の中からソート出来ます(降順・昇順あり)
