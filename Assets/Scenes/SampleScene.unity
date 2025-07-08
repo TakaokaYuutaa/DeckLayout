@@ -2064,7 +2064,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1849061533}
         m_TargetAssemblyTypeName: DeckSeting, Assembly-CSharp
-        m_MethodName: Decision
+        m_MethodName: Decision_ClickThis
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2257,7 +2257,7 @@ GameObject:
   - component: {fileID: 1849061532}
   - component: {fileID: 1849061533}
   m_Layer: 0
-  m_Name: Deck
+  m_Name: Deck_DeckSeting
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2616,7 +2616,7 @@ PrefabInstance:
     - target: {fileID: 1719229308650394362, guid: 79d5b68d7b9faf040a2ddcbf3fe2c3e3, type: 3}
       propertyPath: _notSelect
       value: 
-      objectReference: {fileID: 373336540}
+      objectReference: {fileID: 373336539}
     - target: {fileID: 1719229308650394362, guid: 79d5b68d7b9faf040a2ddcbf3fe2c3e3, type: 3}
       propertyPath: _parameter
       value: 

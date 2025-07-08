@@ -39,7 +39,7 @@ public class DeckSeting : MonoBehaviour
         }
         return cost;
     }
-    public void Decision()
+    public void Decision_ClickThis()
     {
         if (cost < 10)
         {

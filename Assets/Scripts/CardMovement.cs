@@ -15,11 +15,8 @@ public class CardMovement: MonoBehaviour,IDragHandler, IDropHandler
     public int cost, hitPoint,cardNo;
     int costLeast = 1, costHighest = 5;
     int hitPointLeast = 10, hitPointHighest = 255;
-    string slotName;
-    Vector3 setPosition;
     void Start()
     {
-        setPosition = this.transform.position;
         cost = SetCost();
         hitPoint = SetHitPoint();
         SetParameter(cost, hitPoint);
@@ -68,24 +65,12 @@ public class CardMovement: MonoBehaviour,IDragHandler, IDropHandler
                         transform.position = r.gameObject.transform.position;
                         _deckSeting.precomputed = true;
                     }
-                    else
-                    {
-                        _slotData.hp = 0; _slotData.cost = 0;
-                        _slotData.setCard = null;
-                        _slotData = null;
-                        transform.position = setPosition;
-                    }
                 }
-            }
-            else
-            {
-                transform.position = setPosition;
             }
         }
         if (_slotData == null)
         {
-            transform.position = setPosition;
-            transform.parent = _notSelect.transform;
+            transform.SetParent(_notSelect.transform, false);
             _deckSeting.precomputed = true;
         }
     }
