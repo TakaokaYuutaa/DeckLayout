@@ -32,6 +32,10 @@ public class CardSeting : MonoBehaviour
     }
     public void SortPatternChange_ClickThis()
     {
+        if (sortPattern >= 4)
+        {
+            sortPattern = 0;
+        }
         sortPattern++;
         Sort();
     }
@@ -54,7 +58,6 @@ public class CardSeting : MonoBehaviour
             case 4:
                 NameSort();
                 _sortText.text = "ñºëOèá";
-                sortPattern = 0;
                 break;
         }
     }
