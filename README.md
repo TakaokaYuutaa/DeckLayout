@@ -4,6 +4,8 @@
 
 ・[けいふぉんと](https://font.sumomo.ne.jp/font_1.html)
 
+・[UniTask](https://github.com/Cysharp/UniTask/releases)
+
 ## 操作方法
 
 ・アイテムの上でマウスの右クリックを長押しすると、アイテムを掴めます
