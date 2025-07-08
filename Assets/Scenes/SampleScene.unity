@@ -222,7 +222,7 @@ GameObject:
   - component: {fileID: 252789907}
   - component: {fileID: 252789906}
   m_Layer: 5
-  m_Name: Sort
+  m_Name: Sort_Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1090,7 +1090,7 @@ GameObject:
   - component: {fileID: 979115309}
   - component: {fileID: 979115308}
   m_Layer: 5
-  m_Name: Order
+  m_Name: Order_Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1992,7 +1992,7 @@ GameObject:
   - component: {fileID: 1654803258}
   - component: {fileID: 1654803257}
   m_Layer: 5
-  m_Name: Decision
+  m_Name: Decision_Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

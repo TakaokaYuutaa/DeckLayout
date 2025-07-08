@@ -1,6 +1,4 @@
 using Cysharp.Threading.Tasks;
-using System.Collections;
-using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,7 +9,7 @@ public class DeckSeting : MonoBehaviour
     [SerializeField] Text _costText;
     [SerializeField] Text _errorMessage;
     int cost;
-    int displayTime = 3, magnification = 1000;
+    int displayTime = 3, magnification = 1000;// 1s = 1,000
     public bool precomputed = false;
     private void Update()
     {
@@ -54,7 +52,7 @@ public class DeckSeting : MonoBehaviour
     async UniTask ErorrTextDisplay(CancellationToken cancel)
     {
         _errorMessage.gameObject.SetActive(true);
-        await UniTask.Delay(displayTime*magnification);
+        await UniTask.Delay(displayTime * magnification);
         _errorMessage.gameObject.SetActive(false);
     }
 }
