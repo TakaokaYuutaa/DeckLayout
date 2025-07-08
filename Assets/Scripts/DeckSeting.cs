@@ -11,12 +11,16 @@ public class DeckSeting : MonoBehaviour
     [SerializeField] Text _costText;
     [SerializeField] Text _errorMessage;
     int cost;
-    //ErrorTextDisplay
     int displayTime = 3, magnification = 1000;
+    public bool precomputed = false;
     private void Update()
     {
-        cost = CostCalculate();
-        _costText.text = "コスト:" + cost;
+        if (precomputed)
+        {
+            cost = CostCalculate();
+            _costText.text = "コスト:" + cost;
+            precomputed = false;
+        }
         if (cost >= 10)
         {
             _costText.color = Color.red;

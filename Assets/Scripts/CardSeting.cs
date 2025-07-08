@@ -8,6 +8,7 @@ public class CardSeting : MonoBehaviour
 {
     [SerializeField] GameObject _select;
     [SerializeField] GameObject _notSelect;
+    [SerializeField] DeckSeting _deckSeting;
     [SerializeField] Transform _content;
     [SerializeField] GameObject[] _cards;
     [SerializeField] Text _sortText;
@@ -24,10 +25,10 @@ public class CardSeting : MonoBehaviour
             Card.GetComponent<CardMovement>().cardNo = i;
             Card.GetComponent<CardMovement>()._select = this._select;
             Card.GetComponent<CardMovement>()._notSelect = this._notSelect;
-            Card.transform.parent = _notSelect.transform;
+            Card.GetComponent<CardMovement>()._deckSeting = this._deckSeting;
+            Card.transform.SetParent(_notSelect.transform,false); 
         }
         SortSeting();
-
     }
     public void SortPatternChange_ClickThis()
     {
@@ -59,7 +60,6 @@ public class CardSeting : MonoBehaviour
     }
     public void OrderCard_CrickThis()
     {
-        Sort();
         if (order)
         {
             order = false;
@@ -70,6 +70,7 @@ public class CardSeting : MonoBehaviour
             order = true;
             _orderText.text = "è∏èá";
         }
+        Sort();
     }
     void SortSeting()
     {

@@ -294,7 +294,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1738797597}
         m_TargetAssemblyTypeName: CardSeting, Assembly-CSharp
-        m_MethodName: ClickThis
+        m_MethodName: SortPatternChange_ClickThis
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1113,7 +1113,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 694, y: 0}
+  m_AnchoredPosition: {x: 694, y: -128}
   m_SizeDelta: {x: 300, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &979115308
@@ -1162,7 +1162,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1738797597}
         m_TargetAssemblyTypeName: CardSeting, Assembly-CSharp
-        m_MethodName: ClickThis
+        m_MethodName: OrderCard_CrickThis
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1510,7 +1510,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1182664835}
-  - {fileID: 1654803256}
   - {fileID: 1849061532}
   - {fileID: 1539866162}
   - {fileID: 1663973163}
@@ -1518,6 +1517,7 @@ RectTransform:
   - {fileID: 2060640826}
   - {fileID: 252789905}
   - {fileID: 979115307}
+  - {fileID: 1654803256}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -2237,6 +2237,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _select: {fileID: 716356825}
   _notSelect: {fileID: 373336539}
+  _deckSeting: {fileID: 1849061533}
   _content: {fileID: 373336540}
   _cards:
   - {fileID: 1923784144098434073, guid: 79d5b68d7b9faf040a2ddcbf3fe2c3e3, type: 3}
@@ -2244,6 +2245,7 @@ MonoBehaviour:
   - {fileID: 1923784144098434073, guid: 7e16a774d9b1c024fad61aeaba7fe4c4, type: 3}
   - {fileID: 1923784144098434073, guid: 80cb4f5330bc84b49918ab3a03043715, type: 3}
   _sortText: {fileID: 837660906}
+  _orderText: {fileID: 2055247133}
 --- !u!1 &1849061531
 GameObject:
   m_ObjectHideFlags: 0
@@ -2299,6 +2301,7 @@ MonoBehaviour:
   - {fileID: 1466662162}
   _costText: {fileID: 1663973164}
   _errorMessage: {fileID: 2060640827}
+  precomputed: 0
 --- !u!1 &1925929421
 GameObject:
   m_ObjectHideFlags: 0
@@ -2495,7 +2498,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u7372\u5F97\u9806"
+  m_Text: "\u964D\u9806"
 --- !u!222 &2055247134
 CanvasRenderer:
   m_ObjectHideFlags: 0

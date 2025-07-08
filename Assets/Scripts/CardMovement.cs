@@ -11,6 +11,7 @@ public class CardMovement: MonoBehaviour,IDragHandler, IDropHandler
     [SerializeField] Text _text;
     [SerializeField] public GameObject _select;
     [SerializeField] public GameObject _notSelect;
+    [SerializeField] public DeckSeting _deckSeting;
     public int cost, hitPoint,cardNo;
     int costLeast = 1, costHighest = 5;
     int hitPointLeast = 10, hitPointHighest = 255;
@@ -40,7 +41,7 @@ public class CardMovement: MonoBehaviour,IDragHandler, IDropHandler
     }
     public void OnDrag(PointerEventData eventData)
     {
-        transform.parent = _select.transform;
+        transform.SetParent(_select.transform,false); 
         transform.position = eventData.position;
         if (_slotData != null)
         {
@@ -65,6 +66,7 @@ public class CardMovement: MonoBehaviour,IDragHandler, IDropHandler
                         _slotData.setCard = this;
                         _slotData.hp = hitPoint; _slotData.cost = cost;
                         transform.position = r.gameObject.transform.position;
+                        _deckSeting.precomputed = true;
                     }
                     else
                     {
@@ -74,7 +76,6 @@ public class CardMovement: MonoBehaviour,IDragHandler, IDropHandler
                         transform.position = setPosition;
                     }
                 }
-
             }
             else
             {
@@ -83,8 +84,9 @@ public class CardMovement: MonoBehaviour,IDragHandler, IDropHandler
         }
         if (_slotData == null)
         {
-            transform.position =setPosition;
+            transform.position = setPosition;
             transform.parent = _notSelect.transform;
+            _deckSeting.precomputed = true;
         }
     }
 }
