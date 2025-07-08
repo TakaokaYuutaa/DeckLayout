@@ -13,6 +13,7 @@ public class CardMovement: MonoBehaviour,IDragHandler, IDropHandler
     public int cost, hitPoint,cardNo;
     int costLeast = 1, costHighest = 5;
     int hitPointLeast = 10, hitPointHighest = 255;
+    float borderX = 960, borderY = 540;
     void Start()
     {
         cost = SetCost();
@@ -66,7 +67,9 @@ public class CardMovement: MonoBehaviour,IDragHandler, IDropHandler
                 }
             }
         }
-        if (_slotData == null)
+        if (_slotData == null || 
+         transform.position.x <= borderX * -1 || transform.position.x >= borderX || 
+         transform.position.y <= borderY * -1 || transform.position.y >= borderY)
         {
             transform.SetParent(_notSelect.transform, false);
             _deckSeting.precomputed = true;
